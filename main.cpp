@@ -10,6 +10,7 @@ using namespace std;
 int SDL_main(int argc, char* argv[])
 {
 	SDL_Init(SDL_INIT_EVERYTHING); //윈도우 초기화
+	
 
 	//윈도우 가리키고 만들고
 	SDL_Window* MyWindow = SDL_CreateWindow("MoveRect", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
@@ -23,9 +24,11 @@ int SDL_main(int argc, char* argv[])
 	int RectY = 0;
 
 
+
 	//계속 실행
 	while (true)
 	{
+		//
 		SDL_Event MyEvent;
 		while (SDL_PollEvent(&MyEvent)) //계속 물어보는거
 		{
@@ -39,15 +42,20 @@ int SDL_main(int argc, char* argv[])
 			{
 				switch (MyEvent.key.keysym.sym)
 				{
-				case SDLK_w: RectY -= 20;
+				case SDLK_w: 
+					RectY -= 20;
 					break;
-				case SDLK_s: RectY += 20;
+				case SDLK_s: 
+					RectY += 20;
 					break;
-				case SDLK_a: RectX -= 20;
+				case SDLK_a: 
+					RectX -= 20;
 					break;
-				case SDLK_d: RectX += 20;
+				case SDLK_d: 
+					RectX += 20;
 					break;
 				}
+
 				if (RectX > 640)
 				{
 					RectX = -50;
@@ -56,10 +64,7 @@ int SDL_main(int argc, char* argv[])
 				{
 					RectY = -50;
 				}
-
-
 			}
-
 
 		}
 
